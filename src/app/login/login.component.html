@@ -1,0 +1,47 @@
+<div class="login-container">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!-- Username Field -->
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          formControlName="username"
+          placeholder="Enter your username"
+          class="form-control"
+          [class.is-invalid]="isSubmitted && formControls['username'].invalid"
+        />
+        <div *ngIf="isSubmitted && formControls['username'].errors" class="error">
+          <span *ngIf="formControls['username'].errors?.['required']">Username is required.</span>
+          <span *ngIf="formControls['username'].errors?.['minLength']">Username must be at least 3 characters long.</span>
+        </div>
+      </div>
+  
+      <!-- Password Field -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="Enter your password"
+          class="form-control"
+          [class.is-invalid]="isSubmitted && formControls['password'].invalid"
+        />
+        <div *ngIf="isSubmitted && formControls.password.errors" class="error">
+          <span *ngIf="formControls.password.errors.required">Password is required.</span>
+          <span *ngIf="formControls.password.errors.minLength">Password must be at least 6 characters long.</span>
+        </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  
+    <!-- Navigation to Register -->
+    <div class="register-link">
+      <p>Don't have an account? <a (click)="navigateToRegister()">Register here</a></p>
+    </div>
+  </div>
+  
