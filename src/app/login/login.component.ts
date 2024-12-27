@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { AuthServiceService } from '../Service/auth.service';
 
 
 
@@ -16,38 +17,55 @@ export class LoginComponent {
   loginForm: FormGroup;
   isSubmitted = false;
 
-  constructor(private fb: FormBuilder, private router: Router) {
-    this.loginForm = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(3)]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+  // constructor(private fb: FormBuilder, private router: Router) {
+  //   this.loginForm = this.fb.group({
+  //     username: ['', [Validators.required, Validators.minLength(3)]],
+  //     password: ['', [Validators.required, Validators.minLength(6)]]
+  //   });
+  // }
+
+  constructor(private formBuilder: FormBuilder, private router: Router, 
+    private authService: AuthServiceService) {
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
     });
   }
+ 
+get formControls() {
+  return this.loginForm.controls;
+}
 
-  get formControls() {
-    return this.loginForm.controls;
+
+
+onSubmit() {
+  if (this.loginForm.invalid) {
+    return; 
   }
+  
+  const formData = this.loginForm.value; 
 
-  onSubmit(): void {
-    this.isSubmitted = true;
-
-    if (this.loginForm.invalid) {
-      console.error('Form is invalid!');
-      return;
+  this.authService.Login(formData.username, formData.password)
+  .subscribe({
+    next:(res) => {
+      if(res){
+        this.authService.storeToken(res.token);
+      }
+      
+     
+    },
+    error:(error)=>{
+      console.log(error);
+      alert('error');
+    },
+    complete:()=>{
+        alert('Login Successful');
     }
 
-    const { username, password } = this.loginForm.value;
+  })
+}
 
-    // Mock authentication logic
-    if (username === 'admin' && password === 'password123') {
-      console.log('Login successful!');
-      alert('Login successful!');
-      // Navigate to a dashboard or home page
-      this.router.navigate(['/dashboard']);
-    } else {
-      console.error('Invalid credentials');
-      alert('Invalid username or password.');
-    }
-  }
+
 
   navigateToRegister(): void {
     this.router.navigate(['/register']);
