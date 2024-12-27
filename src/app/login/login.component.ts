@@ -51,6 +51,7 @@ onSubmit() {
     next:(res) => {
       if(res){
         this.authService.storeToken(res.token);
+        this.router.navigate(['/products']);
       }
       
      

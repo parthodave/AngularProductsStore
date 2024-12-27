@@ -1,1 +1,10 @@
-<p>products works!</p>
+<div *ngIf="users.length > 0; else noData">
+    <ul>
+      <li *ngFor="let user of users">
+        {{ user.firstName }} {{ user.lastName }} - Active: {{ user.isActive }}
+      </li>
+    </ul>
+  </div>
+  <ng-template #noData>
+    <p>No users found.</p>
+  </ng-template>
