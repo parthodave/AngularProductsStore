@@ -3,8 +3,9 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
 import { LoginComponent } from './app/login/login.component';
 import { provideHttpClient } from '@angular/common/http';
+import { AppComponent } from './app/app.component';
 
-bootstrapApplication(LoginComponent, {
+bootstrapApplication(AppComponent, {
   providers: [
    provideHttpClient(), provideRouter(routes) // Use 'routes' here
   ]
