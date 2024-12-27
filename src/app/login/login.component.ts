@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AuthServiceService } from '../Service/auth.service';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -11,7 +12,7 @@ import { AuthServiceService } from '../Service/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
   standalone: true,
-  imports: [ ReactiveFormsModule]
+  imports: [ ReactiveFormsModule ,CommonModule]
 })
 export class LoginComponent {
   loginForm: FormGroup;

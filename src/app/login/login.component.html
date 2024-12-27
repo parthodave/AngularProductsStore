@@ -29,9 +29,9 @@
           class="form-control"
           [class.is-invalid]="isSubmitted && formControls['password'].invalid"
         />
-        <div *ngIf="isSubmitted && formControls.password.errors" class="error">
-          <span *ngIf="formControls.password.errors.required">Password is required.</span>
-          <span *ngIf="formControls.password.errors.minLength">Password must be at least 6 characters long.</span>
+        <div *ngIf="isSubmitted && formControls['password'].errors" class="error">
+          <span *ngIf="formControls['password'].errors['required']">Password is required.</span>
+          <span *ngIf="formControls['password'].errors['minLength']">Password must be at least 6 characters long.</span>
         </div>
       </div>
   
