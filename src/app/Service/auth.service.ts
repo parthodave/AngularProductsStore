@@ -20,6 +20,12 @@ export class AuthServiceService  {
     return this.httpClient.post<any>('https://localhost:7174/api/Users/login', {username, password});  
   }
 
+  AddUser(FirstName: string, LastName: string, Username: string, Password: string, isActive: boolean)  
+  {
+    return this.httpClient.post<any>('https://localhost:7174/api/Users', {FirstName,LastName,Username,Password,
+    isActive});  
+  }
+
   GetProducts(): Observable<User[]>
   {
     return this.httpClient.get<User[]>("https://localhost:7174/api/OurHero");

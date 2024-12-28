@@ -1,0 +1,69 @@
+<form [formGroup]="userForm" (submit)="OnSubmit()">
+    <div class="form-group">
+        <label for="FirstName">First Name</label>
+        <input
+          type="text"
+          id="FirstName"
+          formControlName="FirstName"
+          placeholder="Enter your firstname"
+          class="form-control"
+          
+        />
+        
+      </div>
+
+      <div class="form-group">
+        <label for="LastName">Last Name</label>
+        <input
+          type="text"
+          id="LastName"
+          formControlName="LastName"
+          placeholder="Enter your last name"
+          class="form-control"
+        
+        />
+       
+      </div>
+
+      <div class="form-group">
+        <label for="Username">Username</label>
+        <input
+          type="text"
+          id="Username"
+          formControlName="Username"
+          placeholder="Enter your username"
+          class="form-control"
+        
+        />
+       
+      </div>
+
+
+      <div class="form-group">
+        <label for="Password">Password</label>
+        <input
+          type="password"
+          id="Password"
+          formControlName="Password"
+          placeholder="Enter your password"
+          class="form-control"
+        
+        />
+       
+      </div>
+
+      
+ <!-- Add Checkbox -->
+ <div class="form-group">
+    <label for="isActive">
+      <input
+        type="checkbox"
+        id="isActive"
+        formControlName="isActive"
+      />
+      Active?
+    </label>
+  </div>
+      
+<button type="submit" class="btn btn-primary" >Add User</button>
+</form>
