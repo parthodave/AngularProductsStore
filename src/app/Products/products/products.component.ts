@@ -18,6 +18,7 @@ export class ProductsComponent {
   ngOnInit() {
     this.authService.GetProducts().subscribe({
       next: (products) => {
+        debugger;
         this.users = products;
       },
       error: (err) => {
