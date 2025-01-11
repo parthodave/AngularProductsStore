@@ -1,4 +1,4 @@
-<div *ngIf="Books.length > 0; else noData">
+<div *ngIf="Books.length; else noData">
     <ul>
       <li *ngFor="let book of Books">
         {{ book.BookName }} {{ book.BookAuthor }} 
@@ -6,6 +6,7 @@
           </li>
     </ul>
   </div>
+  
   <ng-template #noData>
     <p>No users found.</p>
   </ng-template>

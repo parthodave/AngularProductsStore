@@ -8,7 +8,7 @@ import { Book } from '../../Models/Book';
 @Component({
   selector: 'app-books-list',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './books-list.component.html',
   styleUrl: './books-list.component.css'
 })
@@ -21,11 +21,11 @@ constructor(private authService : BookService ){
 
 ngOnInit(){
   this.authService.GetBooks().subscribe({
-    next: (books) => {
-      debugger;
-      this.Books = books;
+    next: (booklist) => {
+      this.Books = booklist;
     },
     error: (err) => {
+      debugger
       console.log(err);
     }
   });
