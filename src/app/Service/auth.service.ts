@@ -37,6 +37,15 @@ export class AuthServiceService  {
     localStorage.setItem('token', token);
   }
 
+  storeName(firstName: string,lastName : string)
+  {
+    localStorage.setItem('FullName', firstName + ' ' + lastName);
+  }
+
+  getFullName(){
+    return localStorage.getItem('FullName');  
+  }
+
   getToken()
   {
     return localStorage.getItem('token');
