@@ -1,9 +1,9 @@
-import { Books } from '../../Models/Books';
 import { Component } from '@angular/core';
 import { User } from '../../Models/User';
 import { AuthServiceService } from '../../Service/auth.service';
 import { CommonModule } from '@angular/common';
 import { BookService } from '../../Service/book.service';
+import { Book } from '../../Models/Book';
 
 @Component({
   selector: 'app-books-list',
@@ -13,7 +13,7 @@ import { BookService } from '../../Service/book.service';
   styleUrl: './books-list.component.css'
 })
 export class BooksListComponent {
-Books : Books[] = [];
+Books : Book[] = [];
 
 constructor(private authService : BookService ){
 
