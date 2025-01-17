@@ -13,7 +13,9 @@ export class BookService {
  
    }
    
- 
+ AddBook(BookName: string, BookAuthor: string){
+      return this.httpClient.post("https://localhost:7174/api/Books", {BookName, BookAuthor});
+ }
    
  
    GetBooks(): Observable<Book[]>
