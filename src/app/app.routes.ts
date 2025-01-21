@@ -4,6 +4,7 @@ import { ProductsComponent } from './Products/products/products.component';
 import { AddUserComponent } from './Products/add-user/add-user.component';
 import { BooksListComponent } from './Books/books-list/books-list.component';
 import { AddBookComponent } from './Books/add-book/add-book.component';
+import { CustomerFormComponent } from './directive/customer-form/customer-form.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -11,5 +12,6 @@ export const routes: Routes = [
      { path: 'adduser', component: AddUserComponent },
      { path: 'books', component: BooksListComponent },
      { path: 'addbook', component: AddBookComponent },
+     { path: 'cust', component: CustomerFormComponent }
    // { path: '**', redirectTo: 'login' } // Redirect to login by default
   ];
