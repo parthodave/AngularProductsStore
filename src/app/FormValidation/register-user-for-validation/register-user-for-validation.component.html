@@ -1,0 +1,25 @@
+<form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" ngModel required minlength="3" />
+    <div *ngIf="registrationForm.controls['name']?.invalid && registrationForm.controls['name']?.touched">
+      <small *ngIf="registrationForm.controls['name']?.errors?.['required']">Name is required.</small>
+      <small *ngIf="registrationForm.controls['name']?.errors?.['minlength']">Name must be at least 3 characters.</small>
+    </div>
+  
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" ngModel required email />
+    <div *ngIf="registrationForm.controls['email']?.invalid && registrationForm.controls['email']?.touched">
+      <small *ngIf="registrationForm.controls['email']?.errors?.['required']">Email is required.</small>
+      <small *ngIf="registrationForm.controls['email']?.errors?.['email']">Enter a valid email.</small>
+    </div>
+  
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" ngModel required minlength="8" />
+    <div *ngIf="registrationForm.controls['password']?.invalid && registrationForm.controls['password']?.touched">
+      <small *ngIf="registrationForm.controls['password']?.errors?.['required']">Password is required.</small>
+      <small *ngIf="registrationForm.controls['password']?.errors?.['minlength']">Password must be at least 8 characters.</small>
+    </div>
+  
+    <button type="submit" [disabled]="registrationForm.invalid">Register</button>
+  </form>
+  
