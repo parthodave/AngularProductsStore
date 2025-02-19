@@ -8,7 +8,12 @@ import { Router } from '@angular/router';
   imports: [CommonModule],
   template: `
     <div *ngIf="showHeader" class="header">
-      Welcome, {{ fullName }}
+    @if(fullName){
+      welcome {{fullName}},
+    }
+    @else{
+      Login properly
+    }
     </div>
   `,
   styles: [`
